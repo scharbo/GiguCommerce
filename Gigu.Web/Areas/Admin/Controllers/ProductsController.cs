@@ -43,7 +43,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var createProduct = new CreateProductVM
+            var createProduct = new CreateProductViewModel
             {
                 Products = new Product(),
                 Categories = _categoryRepository.GetAll().ToList()
@@ -53,7 +53,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CreateProductVM productVM)
+        public IActionResult Create(CreateProductViewModel productVM)
         {
             if (!ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
         [HttpGet("{id}")]
         public IActionResult Update(int id)
         {
-            var prod = new UpdateProductVM
+            var prod = new UpdateProductViewModel
             {
                 Products = _productRepository.GetById(id),
                 Categories = _categoryRepository.GetAll()
@@ -101,7 +101,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
 
         [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(int id, UpdateProductVM updateProductVM)
+        public IActionResult Update(int id, UpdateProductViewModel updateProductVM)
         {
             if (!ModelState.IsValid)
             {
@@ -137,7 +137,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
         [HttpGet("{id}")]
         public IActionResult Delete(int id)
         {
-            var prod = new UpdateProductVM
+            var prod = new UpdateProductViewModel
             {
                 Products = _productRepository.GetById(id),
                 Categories = _categoryRepository.GetAll()
@@ -147,7 +147,7 @@ namespace Gigu.Web.Areas.Admin.Controllers
 
         //delete product on click delete
         [HttpPost("{id}")]
-        public IActionResult Delete(int id, UpdateProductVM productVM)
+        public IActionResult Delete(int id, UpdateProductViewModel productVM)
         {
             var originalProd = _productRepository.GetById(productVM.Products.ProductId);
             _productRepository.Delete(productVM.Products.ProductId);

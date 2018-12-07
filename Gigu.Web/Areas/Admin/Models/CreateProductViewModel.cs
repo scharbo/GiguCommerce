@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gigu.Web.Areas.Admin.AdminVM
 {
-    public class CreateProductVM
+    public class CreateProductViewModel
     {
         public Product Products { get; set; }
         public List<Category> Categories { get; set; }

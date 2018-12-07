@@ -65,7 +65,7 @@ namespace Gigu.Web.Areas.Admin.Controllers.Api
             {
                 return BadRequest(ModelState);
             }
-            var prod = new UpdateProductVM
+            var prod = new UpdateProductViewModel
 
             {
                 Products = _productRepository.GetById(id),
@@ -77,7 +77,7 @@ namespace Gigu.Web.Areas.Admin.Controllers.Api
         [HttpGet("VM")]
         public IActionResult GetProductVMForInsert()
         {
-            var prod = new CreateProductVM
+            var prod = new CreateProductViewModel
             {
                 Products = new Product(),
                 Categories = _categoryRepository.GetAll().ToList()
