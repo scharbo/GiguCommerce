@@ -60,12 +60,15 @@ namespace Gigu.Web.Controllers
                         }
                     }
 
-                    _userManager.AddToRoleAsync(customer, "SiteUser").Wait();
+                    await _userManager.AddToRoleAsync(customer, "SiteUser");
                     await _signInManager.SignInAsync(customer, isPersistent: false);
-                    return RedirectToAction("Login", "Account");
+                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    {
+                        return Redirect(Request.Query["ReturnUrl"].First());
+                    }
+                    return RedirectToAction("Index", "Home");
                 }
             }
-
             return View(registerVM);
         }
 
@@ -84,12 +87,12 @@ namespace Gigu.Web.Controllers
                     loginVM.Password,
                     loginVM.RememberMe,
                     false);
-                if (Request.Query.Keys.Contains("ReturnUrl"))
+                if (result.Succeeded)
                 {
-                    return Redirect(Request.Query["ReturnUrl"].First());
-                }
-                else
-                {
+                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    {
+                        return Redirect(Request.Query["ReturnUrl"].First());
+                    }
                     return RedirectToAction("Index", "Home");
                 }
             }
