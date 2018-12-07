@@ -6,26 +6,29 @@
     <title>@ViewBag.Title</title>
 
     <link href="~/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
     <link href="~/css/animate.css" rel="stylesheet" />
-    <link href="~/css/default.css" rel="stylesheet" />
     <link href="~/css/style.css" rel="stylesheet" />
 </head>
-<body class="fix-header fix-sidebar content-wrapper" style="background-color:#ECEFF1">
-    <partial name="AdminPartials/_TopMenu"/>
-    <div>
-        <div class="m-t-40">
-            @RenderBody()
+<body class="">
+    <partial name="AdminPartials/_TopMenu" />
+    <div id="wrapper" class="container">
+        <div class="row">
+            <div class="col-3">
+                <partial name="AdminPartials/_Sidebar" />
+            </div>
+            <div id="page-content-wrapper" class="col-9">
+                @RenderBody()
+
+            </div>
         </div>
-        <hr />
-        <footer class="footer text-center">© @DateTime.Now.Year | Powered by Love</footer>
-    </div>
+    </div>            
+    <footer class="footer text-center">© @DateTime.Now.Year | Powered by Love</footer>
 
     @RenderSection("scripts", required: false)
 
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/custom.js"></script>
-    <script src="~/js/sidebar-nav.min.js"></script>
+
 </body>
 </html>

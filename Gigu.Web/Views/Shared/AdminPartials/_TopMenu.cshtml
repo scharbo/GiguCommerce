@@ -1,20 +1,12 @@
-﻿<div class="navbar-header" style="float:none;">
-    <div class="m-l-10" style="width: 220px;float: left; background: #4F5477;">
-        <a class="logo" href="/">
-            <b>
-                <img src="~/images/happy.jpg" class="img-circle" alt="home" width="60">
-            </b>
-            <span style="color:white"><strong>Happy</strong> Code</span>
+﻿<nav class="navbar navbar-dark  bg-dark navbar-expand-md">
+    <h1 class="navbar-brand">
+        <a class="logo navbar-brand" href="/">
+            <i class="fa fa-paint-brush"></i> Welcome to NoNameYet
         </a>
-    </div>
-    <ul class="nav navbar-top-links navbar-left hidden-xs"></ul>
-
+    </h1>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#theMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav container-fluid"></ul>
     @await Html.PartialAsync("AdminPartials/_TopPartialLoginMenu")
-
-    @*<ul class="nav navbar-nav navbar-right">
-        <li><a href="/Account/Register">## Register ##</a></li>
-        <li><a href="/Account/Login">## Log in ##</a></li>
-    </ul>*@
-
-
-</div>
+</nav>

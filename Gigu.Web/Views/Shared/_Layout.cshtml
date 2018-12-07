@@ -4,11 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gigu.Web</title>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/sidebar-nav.min.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <link href="~/css/default.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
     <base href="~/" />
 </head>
-<body>
-    @RenderBody()
 
+<body  style="background-color:#ECEFF1">
+    <partial name="AdminPartials/_TopMenu" />
+    <div>
+        <div class="m-t-40">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer class="footer text-center">© @DateTime.Now.Year | Powered by Love</footer>
+    </div>
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/sidebar-nav.min.js"></script>
     <script src="~/dist/gigucommerce.min.js" asp-append-version="true"></script>
     @RenderSection("scripts", required: false)
 
